@@ -1,0 +1,10 @@
+@echo off
+rem Starts ldac-win and keeps it running. Edit the 3 values below.
+set HEADSET=AB:CD:EF:01:23:45
+set DEVICE=0
+set QUALITY=sq
+cd /d "%~dp0"
+:loop
+ldac-win.exe --connect %HEADSET% --device %DEVICE% --quality %QUALITY% >> ldac-win.log 2>&1
+timeout /t 5 /nobreak >nul
+goto loop
